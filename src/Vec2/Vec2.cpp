@@ -1,16 +1,23 @@
 #include <iostream>
 #include "Vec2.h"
-using namespace std;
 
-Vec2::Vec2(float x, float y) : x(x), y(y) {
-    cout << x << endl;
-    cout << y << endl;
+Vec2::Vec2(double x, double y) : x_(x), y_(y) {
+    std::cout << x << std::endl;
+    std::cout << y << std::endl;
 }
 
-float Vec2::getX() const {
-    return this->x;
+double Vec2::x() const {
+    return this->x_;
 }
 
-float Vec2::getY() const {
-    return this->y;
+double Vec2::y() const {
+    return this->y_;
+}
+
+void Vec2::set_x(double x) {
+    this->x_ = x;
+}
+
+void Vec2::set_y(double y) {
+    this->y_ = y;
 }
