@@ -1,0 +1,51 @@
+{
+    "images": [
+        "/img/background.png",
+        "/img/elf-front.png",
+        "/img/elf-side.png",
+        "/img/snowman-front.png",
+        "/img/snowman-side.png",
+        "/img/santa-front.png",
+        "/img/santa-side.png",
+        "/img/caroler-front.png",
+        "/img/caroler-side.png",
+        "/img/scope.png",
+        "/img/heart.png",
+        "/img/bullet.png"
+    ],
+
+    "sounds": [
+
+    ],
+
+    "settings": {
+
+    },
+
+    "keys": {
+
+    },
+
+    "carolers": {
+        "caroler": {
+            "health": 1,
+            "speed": 45,
+            "pointValue": 3
+        },
+        "snowman": {
+            "health": 2,
+            "speed": 25,
+            "pointValue": 8
+        },
+        "santa": {
+            "health": 5,
+            "speed": 15,
+            "pointValue": 15
+        },
+        "elf": {
+            "health": 1,
+            "speed": 120,
+            "pointValue": 25
+        }
+    }
+}

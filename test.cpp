@@ -1,8 +1,12 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include <iostream>
 #include <SDL2/SDL.h>
 #include <string>
+#include "lib/rapidjson/rapidjson.h"
 #include "src/Vec2/Vec2.h"
 #include "src/Game/Game.h"
+#include "src/AssetCollection/AssetCollection.h"
 using namespace std;
 
 class App: public Game {
@@ -17,17 +21,17 @@ class App: public Game {
 };
 
 int main () {
-    cout << "test" << endl;
+    cout << "test" << endl << endl;
 
-    Vec2 v1(1, 2);
+    App * app = new App(640, 480);
 
-    v1.set_x(3);
+    cout << to_string(app->window_height()) + " " + to_string(app->window_width());
 
-    cout << to_string(v1.x()) + " " + to_string(v1.y()) << endl;
+    AssetCollection * assets = new AssetCollection("res/assets.json");
 
-    App game(640, 480);
+    //game->run();
 
-    cout << to_string(game.window_height()) + " " + to_string(game.window_width());
+    cout << endl << endl << "end" << endl;
 
     return 0;
 }
