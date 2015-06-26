@@ -29,11 +29,11 @@ double Vec2::angle_between(Vec2* vector) {
     return atan2(this->y_ - vector->y(), this->x_ - vector->x()) * 180 / M_PI;
 }
 
-double Vec2::x() const {
+double Vec2::x() {
     return this->x_;
 }
 
-double Vec2::y() const {
+double Vec2::y() {
     return this->y_;
 }
 
@@ -45,6 +45,10 @@ void Vec2::randomize(int max_x, int max_y) {
 void Vec2::translate(Vec2* vector) {
     this->x_ += vector->x();
     this->y_ += vector->y();
+}
+void Vec2::translate(double x, double y) {
+    this->x_ += x;
+    this->y_ += y;
 }
 
 void Vec2::normalize() {

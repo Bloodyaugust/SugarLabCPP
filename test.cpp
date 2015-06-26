@@ -5,13 +5,11 @@
 #include <cmath>
 #include <SDL2/SDL.h>
 #include <boost/filesystem.hpp>
-#include "lib/rapidjson/rapidjson.h"
 #include "src/Vec2/Vec2.h"
 #include "src/Game/Game.h"
-#include "src/AssetCollection/AssetCollection.h"
-#include "src/ImageLoader/ImageLoader.h"
 #include "src/Scene/Scene.h"
 #include "src/Actor/Actor.h"
+#include "src/AssetLoader.hpp"
 using namespace std;
 using namespace boost::filesystem;
 
@@ -53,6 +51,30 @@ class Fireball: public Actor {
         Vec2 * velocity_;
 };
 
+class TestScene: public Scene {
+    public:
+        TestScene (std::string name, Game* game) : game_(game), Scene(name) {
+            this->loader_ = this->game_->assets();
+        }
+
+        void init() {
+            for (int i = 0; i < 100; i++) {
+                Fireball * test_actor = new Fireball("tester");
+                Vec2 * random_position = new Vec2(0, 0);
+                random_position->randomize(600, 500);
+
+                test_actor->set_position(random_position);
+                test_actor->set_texture(this->loader_->texture("fireball.png"));
+
+                this->add_actor(test_actor);
+            }
+        }
+
+    private:
+        Game* game_;
+        AssetLoader* loader_;
+};
+
 class Loader: public Actor {
     public:
         Loader(string tag) : Actor(tag) {
@@ -64,28 +86,12 @@ class Loader: public Actor {
 int main() {
     cout << "test" << endl << endl;
 
-    App * app = new App(1280, 1020);
+    App* app = new App(1280, 1020);
 
-    cout << to_string(app->window_height()) + " " + to_string(app->window_width()) << endl;
+    app->set_asset_loader("res/img/", "res/sfx/");
+    AssetLoader* loader = app->assets();
 
-    ImageLoader * images = new ImageLoader("res/img/", app->window_renderer());
-
-    Scene* load_scene = new Scene("load");
-    Actor* load_data = new Actor("loader");
-
-
-    Scene * test_scene = new Scene("test");
-
-    for (int i = 0; i < 100; i++) {
-        Fireball * test_actor = new Fireball("tester");
-        Vec2 * random_position = new Vec2(0, 0);
-        random_position->randomize(600, 500);
-
-        test_actor->set_texture(images->get_texture("fireball.png"));
-        test_actor->set_position(random_position);
-
-        test_scene->add_actor(test_actor);
-    }
+    TestScene* test_scene = new TestScene("test", app);
 
     app->add_scene(test_scene);
     app->set_scene("test");

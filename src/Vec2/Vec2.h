@@ -10,10 +10,11 @@ class Vec2 {
 		double distance(Vec2* vector);
 		double magnitude();
 		double angle_between(Vec2* vector);
-		double x() const;
-		double y() const;
+		double x();
+		double y();
 		void randomize(int max_x, int max_y);
 		void translate(Vec2* vector);
+		void translate(double x, double y);
 		void normalize();
 		void scale(double scalar);
 		void translate_along_angle(double translate_by, double angle);

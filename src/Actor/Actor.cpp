@@ -10,6 +10,9 @@ Actor::Actor(std::string tag) : tag_(tag) {
     this->draw_ = false;
 
     this->draw_rect_ = new SDL_Rect {0, 0, 0, 0};
+    this->src_rect_ = new SDL_Rect {0, 0, 0, 0};
+
+    this->texture_size_ = new Vec2(0, 0);
 }
 
 SDL_Texture* Actor::texture() {
@@ -18,6 +21,10 @@ SDL_Texture* Actor::texture() {
 
 SDL_Rect* Actor::draw_rect() {
     return this->draw_rect_;
+}
+
+SDL_Rect* Actor::src_rect() {
+    return this->src_rect_;
 }
 
 Vec2* Actor::position() {
@@ -44,11 +51,22 @@ void Actor::update(double delta_time) {
     }
 }
 
+void Actor::emit_event(Event* event) {
+    this->event_queue_.push_back(event);
+}
+
 void Actor::generate_draw_rect() {
     this->draw_rect_->x = this->position_->x();
     this->draw_rect_->y = this->position_->y();
     this->draw_rect_->w = this->texture_size_->x();
     this->draw_rect_->h = this->texture_size_->y();
+}
+
+void Actor::generate_src_rect() {
+    this->src_rect_->x = 0;
+    this->src_rect_->y = 0;
+    this->src_rect_->w = this->texture_size_->x();
+    this->src_rect_->h = this->texture_size_->y();
 }
 
 void Actor::set_texture(SDL_Texture* texture) {
@@ -61,6 +79,7 @@ void Actor::set_texture(SDL_Texture* texture) {
     this->texture_size_ = new Vec2(width, height);
 
     this->generate_draw_rect();
+    this->generate_src_rect();
 
     this->draw_ = true;
 }
