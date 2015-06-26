@@ -10,6 +10,7 @@
 #include "src/Scene/Scene.h"
 #include "src/Actor/Actor.h"
 #include "src/AssetLoader.hpp"
+#include "src/Text.hpp"
 using namespace std;
 using namespace boost::filesystem;
 
@@ -54,11 +55,14 @@ class Fireball: public Actor {
 class TestScene: public Scene {
     public:
         TestScene (std::string name, Game* game) : game_(game), Scene(name) {
+            TTF_Font* font = TTF_OpenFont("res/font/orbitron-black.ttf", 24);
+
             this->loader_ = this->game_->assets();
+            this->fps_ = new Text("FPS: 0", new Rect(50, 0, 300, 50), font, this->game_->window_renderer());
         }
 
         void init() {
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 30000; i++) {
                 Fireball * test_actor = new Fireball("tester");
                 Vec2 * random_position = new Vec2(0, 0);
                 random_position->randomize(600, 500);
@@ -70,9 +74,22 @@ class TestScene: public Scene {
             }
         }
 
+        void update(double delta_time) {
+            Scene::update(delta_time);
+
+            this->fps_->set_text("FPS: " + std::to_string(this->game_->fps()));
+        }
+
+        void draw(SDL_Renderer* renderer) {
+            Scene::draw(renderer);
+
+            this->fps_->draw();
+        }
+
     private:
         Game* game_;
         AssetLoader* loader_;
+        Text* fps_;
 };
 
 class Loader: public Actor {
