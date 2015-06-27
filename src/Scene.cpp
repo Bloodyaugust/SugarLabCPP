@@ -2,8 +2,8 @@
 #include <string>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include "../../src/Actor/Actor.h"
-#include "Scene.h"
+#include "Actor.hpp"
+#include "Scene.hpp"
 
 Scene::Scene(std::string name) : name_(name) {
 

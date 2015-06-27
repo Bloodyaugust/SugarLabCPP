@@ -1,8 +1,8 @@
 #ifndef SRC_SCENE_SCENE_H_
 #define SRC_SCENE_SCENE_H_
 
-#include "../../src/Actor/Actor.h"
-#include "../../src/Event.hpp"
+#include "Actor.hpp"
+#include "Event.hpp"
 #include <vector>
 #include <unordered_map>
 

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <math.h>
-#include "Vec2.h"
+#include "Vec2.hpp"
 
 Vec2::Vec2(double x, double y) : x_(x), y_(y) {
 }

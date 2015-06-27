@@ -2,8 +2,8 @@
 #include <string>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include "../../src/Vec2/Vec2.h"
-#include "Actor.h"
+#include "Vec2.hpp"
+#include "Actor.hpp"
 
 Actor::Actor(std::string tag) : tag_(tag) {
     this->position_ = new Vec2(0, 0);

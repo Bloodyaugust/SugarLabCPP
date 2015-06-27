@@ -4,8 +4,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
-#include "Game/Game.h"
-#include "Actor/Actor.h"
+#include "Game.hpp"
+#include "Actor.hpp"
 #include "Rect.hpp"
 
 class Button : public Actor {

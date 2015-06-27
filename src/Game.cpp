@@ -1,4 +1,4 @@
-#include "Game.h"
+#include "Game.hpp"
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -6,7 +6,7 @@
 #include <iostream>
 #include <array>
 #include <chrono>
-#include "../../src/Scene/Scene.h"
+#include "Scene.hpp"
 
 Game::Game(double width, double height) : window_width_(width), window_height_(height) {
     std::cout << std::fixed << this->window_width_ << std::endl;

@@ -6,9 +6,9 @@
 #include <chrono>
 #include <array>
 #include <unordered_map>
-#include "../../src/Scene/Scene.h"
-#include "../../src/AssetLoader.hpp"
-#include "../../src/Vec2/Vec2.h"
+#include "Scene.hpp"
+#include "AssetLoader.hpp"
+#include "Vec2.hpp"
 
 class Game {
     public:

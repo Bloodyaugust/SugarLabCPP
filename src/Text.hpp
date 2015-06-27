@@ -6,7 +6,7 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #include "Rect.hpp"
-#include "Vec2/Vec2.h"
+#include "Vec2.hpp"
 
 class Text {
     public:

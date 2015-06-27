@@ -5,12 +5,12 @@
 #include <cmath>
 #include <SDL2/SDL.h>
 #include <boost/filesystem.hpp>
-#include "src/Vec2/Vec2.h"
-#include "src/Game/Game.h"
-#include "src/Scene/Scene.h"
-#include "src/Actor/Actor.h"
-#include "src/AssetLoader.hpp"
-#include "src/Text.hpp"
+#include <sugarlab/Game.hpp>
+#include <sugarlab/Scene.hpp>
+#include <sugarlab/AssetLoader.hpp>
+#include <sugarlab/Rect.hpp>
+#include <sugarlab/Vec2.hpp>
+#include <sugarlab/Text.hpp>
 using namespace std;
 using namespace boost::filesystem;
 

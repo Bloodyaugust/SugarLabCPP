@@ -4,8 +4,8 @@
 #include <vector>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include "../../src/Vec2/Vec2.h"
-#include "../../src/Event.hpp"
+#include "Vec2.hpp"
+#include "Event.hpp"
 
 class Actor {
     public:

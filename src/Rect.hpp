@@ -1,7 +1,7 @@
 #ifndef SRC_RECT_H_
 #define SRC_RECT_H_
 
-#include "Vec2/Vec2.h"
+#include "Vec2.hpp"
 
 class Rect {
 	public:
