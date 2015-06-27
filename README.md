@@ -17,7 +17,7 @@ to make full use of the library.
 #Including
 You'll need
 ```
-nclude <sugarlab/Game.hpp>
+#include <sugarlab/Game.hpp>
 #include <sugarlab/Scene.hpp>
 #include <sugarlab/AssetLoader.hpp>
 #include <sugarlab/Rect.hpp>
